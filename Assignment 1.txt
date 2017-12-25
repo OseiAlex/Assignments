@@ -1,0 +1,40 @@
+Create a Branch Named 'Top Level' with the solution!
+Utilize all the OOP Concepts you've learned to write a clean code.
+Good Luck!!!
+
+Scenario:  Tops Travel is a web-based travel agency that runs a number of different websites designed to attract particular types of traveller. For example, "Club 18" is aimed at singles, "Centre Parks" is aimed at families and "Club Silver" is aimed at retired people. Each website has its own home page with individual branding and each site has a different selection of discounted holidays. Travellers who are interested in finding out about these holidays must submit their email address via the appropriate home page and they are then given a unique membership number (via email). Later they can use this number to gain access to the holidays on that particular website and perhaps select a holiday and go to the checkout to pay for it. For the purposes of this assessment, you may assume that only one person can log onto the web site at any one time.
+
+Step 1: A basic Member class
+Write a basic Member class with two private fields, email (a String) and membershipNumber (which you can assume consists of a unique sequence of digits).  The constructor for the class should initialise these two fields whenever a Member object is created and be passed suitable argument(s).  
+When you have successfully tested this Member class, introduce a new field loginStatus, which is set by the constructor to false, and a method setLoginStatus(), which is passed a boolean value as an argument.  This field will be used whenever the member logs in to one of Tops Travel's websites.
+
+Finally, check that you have included suitable accessor methods.  In future steps, you will not necessarily be reminded to include, for example, accessor methods.  You will be expected to provide any necessary accessor methods and write sensible code following the general principles and conventions you have been studying in the Introduction to Programming module.
+
+Step 2: A basic Website class
+a)	Write a basic Website class to represent the web site.  The constructor for the class should be passed the name of the website which will typically be "Club 18", "Centre Parks" or "Club Silver" and which should be saved in a field.  A second field hits should record the number of browsers who logged into the website and a third field salesTotal should record the amount of money taken at the checkout.  
+
+b)	Write a method for the class, called memberLogin(), which allows a member to log in to the site. This method is passed a Member object as a parameter and which
+i)	uses the member's setLoginStatus() method to "log in" that member to the website;
+ii)	outputs a welcome message to a terminal window in the format
+Club 18 welcomes member 6732, you are now logged in
+c)	Now write a memberLogout() method.
+
+Step 3: Add a basic Holiday class and allow a member to select a holiday.
+a)	Write a basic Holiday class to represent a holiday.  A Holiday object has three fields: refNo (a unique sequence of letters and digits), type (e.g. "beach", "touring") and price (the price of the holiday in pounds per person).  The constructor for the class should be passed suitable arguments to initialise the three fields.
+b)	Add a selectHoliday() method to the Member class which allows a member to choose a holiday provided the user is logged into the appropriate website. This method is passed a Holiday object as a parameter.  You should declare a new field holiday in the Member class in order to store the holiday selected. 
+c)	Make the selectHoliday() method print a message to a terminal window similar to this one
+Member 6732 has selected holiday ref number W1473, a touring holiday at £550 per person.
+
+ 
+Step 4: Allow a member to pay for the holiday.
+a)	Add a method payForHoliday() to the Member class.  This method will simply call a method in the Website class to pay for the holiday (i.e. to record the transaction with the website). And here we have a problem because the object from the Member class doesn't keep a record of which website the member is logged into. So we need to do Part (b) below before we go any further.
+b)	Add another field website to the Member class.  This field is of type Website and will be used to store a reference to the website the member has logged into.  Write a corresponding mutator method setWebsite() which allows the field website to be given a value.
+•	Modify the memberLogin() method of Website (from Step 2b) so that after the user is logged into the website, setWebsite() is called with a pointer to that website. 
+So, the setWebsite() method needs to be passed, as an argument, a pointer to the Website object you are currently browsing. This will enable the Member object to record which website it is logged in to.
+
+	In fact, the Website object needs to be able to tell the Member object "point to me". To do this, you need to use a self-referencing pointer
+Amend your code accordingly and complete payForHoliday() by adding a call to a method checkout() of the Website class. What parameters do you think checkout() will need? Try working this out for yourself and then to check, read c) below which details the parameters needed.
+c)	Add a method checkout() to the Website class which is passed two parameters: a Member object representing the member purchasing the holiday and a Holiday object representing the holiday.  The checkout() method should print a message to a terminal window confirming successful completion of the transaction.
+d)	Add code so that the browser is logged off after they have paid for their holiday.
+e)	It is decided to give a discount to every 10th member who logs into the website -- if they select and pay for a holiday during this login session then they will receive a 10% discount at checkout. Add a method checkHitDiscount() to the Website class which checks whether a discount is available. Amend your checkout() method to use this new method and, if appropriate, to print a congratulatory message to the terminal window and, of course, to reduce the cost of the holiday(s).
+
