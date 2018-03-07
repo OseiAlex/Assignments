@@ -20,4 +20,11 @@ public class Member {
         return MembershipNumber;
     }
 
+    public void setLoginStatus(boolean loginStatus) {
+        this.LoginStatus = loginStatus;
+    }
+
+    public boolean getLoginStatus() {
+        return LoginStatus;
+    }
 }

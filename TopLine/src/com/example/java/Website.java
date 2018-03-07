@@ -1,14 +1,8 @@
 package com.example.java;
 
 public class Website {
-    private String Club;
     private int Hits;
     private int SalesTotal;
-    private boolean LoginStatus;
-
-    public void setClub(String Club) {
-        Club = Club;
-    }
 
     public void setHits(int Hits) {
         Hits = Hits;
@@ -16,10 +10,6 @@ public class Website {
 
     public void setSalesTotal(int SalesTotal) {
         SalesTotal = SalesTotal;
-    }
-
-    public String getClub() {
-        return Club;
     }
 
     public int getHits() {
@@ -30,12 +20,12 @@ public class Website {
         return SalesTotal;
     }
 
-    public void setLoginStatus(boolean loginStatus) {
-        LoginStatus = loginStatus;
-    }
+    public class Club18{
+        private String Club;
 
-    public boolean isLoginStatus() {
-        return LoginStatus;
+        public Club18(String Club18){
+            this.Club = Club;
+        }
     }
 
     public void MemberLogin(){
